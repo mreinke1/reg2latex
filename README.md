@@ -1,3 +1,5 @@
+[![View reg2latex on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://de.mathworks.com/matlabcentral/fileexchange/118050-reg2latex)
+
 # reg2latex
 
 ## Description
