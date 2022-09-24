@@ -1,3 +1,8 @@
+## Remove system file and Matlab specific
+.DS_Store
+
+*.m~
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

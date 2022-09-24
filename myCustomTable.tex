@@ -1,0 +1,30 @@
+\begin{table}[H] 
+\centering 
+\caption{Please make my first model bold} 
+\label{tab:myLabel}
+\begin{threeparttable}
+\begin{tabular}{lcc}
+\toprule 
+& \textbf{Baseline Model} 1 & Test \\ 
+\midrule 
+\multirow{2}{*}{(Intercept)}&47.9768$^{***}$ &  \\ 
+& (3.8785) &  \\ 
+\multirow{2}{*}{weight}& &0.0045$^{***}$ \\ 
+&  &(0.0002) \\ 
+\multirow{2}{*}{x1}&-0.0065$^{***}$ &  \\ 
+& (0.0011) &  \\ 
+\multirow{2}{*}{x2}&-0.0429$^{*}$ &  \\ 
+& (0.0243) &  \\ 
+\midrule 
+N & 100 & 93 \\ 
+Rsquared & -2.4298 & 0.75206 \\ 
+FirmFE & Yes & No \\ 
+\bottomrule 
+\end{tabular} 
+\begin{tablenotes} 
+\scriptsize 
+\item \leavevmode\kern-\scriptspace\kern-\labelsep Note:$^{*}$p$<$0.10,$^{**}$p$<$0.05,$^{***}$p$<$0.01 This a long note explaining what I did in each model. 
+\end{tablenotes}
+\end{threeparttable} 
+\end{table} 
+ 
