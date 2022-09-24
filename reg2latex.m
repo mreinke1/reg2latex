@@ -1,9 +1,9 @@
 function reg2latex(mdl, varargin)
-% function mdl2latex(mdl, varargin)
+% function reg2latex(mdl, varargin)
 % Produces a tex document summarizing the regression output.
 %
 % Syntax:
-%	- sum_stat = mdl2latex(mdl,filename, tabPosition, tabCaption, modelName, tabLabel, tabNote, addInfo)
+%	- sum_stat = reg2latex(mdl,filename, tabPosition, tabCaption, modelName, tabLabel, tabNote, addInfo)
 %
 % Note: 
 %   - The function prints out the standard errors below the coefficients in

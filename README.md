@@ -1,7 +1,7 @@
 # reg2latex
 
 ## Description
-The function `reg2latex` creates a `.tex` file from a linear model in Matlab. The function allows for multiple model inputs and to format your own regression output. If you use other methods to estimate regressions in Matlab (e.g.:  [Econometrics Toolbox](https://www.spatial-econometrics.com), then you can parse a `struct` into `reg2latex` and obtain a regression output.
+The function `reg2latex` creates a `.tex` file from a linear model in Matlab. The function allows for multiple model inputs and to format your own regression output. If you use other methods to estimate regressions in Matlab (e.g.:  [Econometrics Toolbox](https://www.spatial-econometrics.com), then you can parse a `struct` into `reg2latex` and obtain a regression output. Standard errors are reported in brackets.
 
 ## Set-up
 Clone the repository and add it to your Matlab path. Make sure to add the folder `helper` to your path.
