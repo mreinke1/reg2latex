@@ -33,7 +33,7 @@ tabNote = 'This a long note explaining what I did in each model.';
 
 % Call reg2latex and createx tex output for a single regression output
 modelName = '& Baseline Model 1';
-reg2latex({mdl},'myTable1.tex', tabPosition, tabCaption, tabLabel, modelName, tabNote);
+reg2latex({mdl},'filename','myTable1.tex', 'tabPosition',tabPosition, 'tabCaption',tabCaption, 'tabLabel',tabLabel, 'modelName', modelName, 'tabNote',tabNote);
 ```
 The obtained screenshot from the output in Latex is
 
@@ -55,7 +55,7 @@ reg2latex({mdl, mdl1},'myTable2.tex', tabPosition, tabCaption, tabLabel, modelNa
 
 % Call reg2latex and create tex output for all the models
 modelName = '& Baseline Model 1 & Another model 2 & Another fancy model 3';
-reg2latex({mdl2, mdl, mdl1},'myTable3.tex', tabPosition, tabCaption, tabLabel, modelName, tabNote);
+reg2latex({mdl2, mdl, mdl1},'filename','myTable3.tex', 'tabPosition',tabPosition, 'tabCaption',tabCaption, 'tabLabel',tabLabel, 'modelName', modelName, 'tabNote',tabNote);
 ```
 ![tab2](/screenshots/ScreenshotTab2.png "Tab2")
 ![tab3](/screenshots/ScreenshotTab3.png "Tab3")
@@ -85,7 +85,7 @@ addInfo.model2.(addInfo.addFieldName{2}) = mdl.Rsquared.Ordinary;
 addInfo.model2.(addInfo.addFieldName{3}) = 'No';
 
 modelName = '& Baseline Model 1 & Test';
-reg2latex({mdl, myMdl},'myCustomTable.tex', tabPosition, tabCaption, tabLabel, modelName, tabNote, addInfo)
+reg2latex({mdl, myMdl},'filename','myCustomTable.tex', 'tabPosition', tabPosition, 'tabCaption', tabCaption, 'tabLabel',tabLabel, 'modelName', modelName, 'tabNote',tabNote);
 ```
 ![tab4](/screenshots/ScreenshotTab4.png "Tab4")
 
