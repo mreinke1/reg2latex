@@ -52,16 +52,14 @@ for iCol = 1:numModel
 end
 
 p = inputParser;
-addRequired(p, 'mdl');
-addOptional(p, 'filename', defaultFilename, @ischar);
-addOptional(p, 'tabPosition', defaultTabPosition, @ischar);
-addOptional(p, 'tabCaption', defaultTabCaption, @ischar);
-addOptional(p, 'tabLabel', defaultTabLabel, @ischar);
-addOptional(p, 'modelName', defaultModelName, @ischar)
-addOptional(p, 'tabNote', defaultTabNote, @ischar);
-addOptional(p, 'addInfo', defaultTabInfo, @isstruct);
-parse(p, mdl, varargin{:});
-
+addOptional(p, 'filename', defaultFilename);
+addOptional(p, 'tabPosition', defaultTabPosition);
+addOptional(p, 'tabCaption', defaultTabCaption);
+addOptional(p, 'tabLabel', defaultTabLabel);
+addOptional(p, 'modelName', defaultModelName)
+addOptional(p, 'tabNote', defaultTabNote);
+addOptional(p, 'addInfo', defaultTabInfo);
+parse(p,varargin{:});
 
 % Check wether the modelName is correctly specified. If not set default
 % model Name again
@@ -95,13 +93,13 @@ fprintf(file, '\\midrule \n');
 coefficients = nan(numModel,1);
 
 for iModel = 1:numModel
-    coefficients(iModel) = p.Results.mdl{1,iModel}.NumCoefficients;
+    coefficients(iModel) = mdl{1,iModel}.NumCoefficients;
 end
 
 % Get unique coefficient names
 coefficientsNames = cell(1,numModel);
 for iModel = 1:numModel
-    coefficientsNamesTemp = char(p.Results.mdl{1,iModel}.CoefficientNames');
+    coefficientsNamesTemp = char(mdl{1,iModel}.CoefficientNames');
     coefficientsNames{1,iModel} =  char(coefficientsNamesTemp);
 end
 
@@ -124,7 +122,7 @@ end
 
 for iModel=1:numModel
     
-    outCell = createTableCell(p.Results.mdl{iModel});
+    outCell = createTableCell(mdl{iModel});
     
     % Add variables to cell
     for iVar = 1:size(outCell,1)
