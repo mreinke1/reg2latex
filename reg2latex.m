@@ -41,6 +41,15 @@ defaultTabPosition = 'H';
 defaultTabCaption = '';
 defaultTabLabel = '';
 defaultTabNote = '';
+
+numCoeffTemp = nan(numModel,1);
+for iCol = 1:numModel
+    numCoeffTemp(iCol) = mdl{1,iCol}.NumCoefficients;
+end
+% index model with most coefficients
+[~,val] = max(numCoeffTemp);
+
+defaultCustomVarNames = mdl{1,val}.CoefficientNames;
 defaultTabInfo = struct;
 
 % Construct default model names if no specific model name is parsed into the function
@@ -59,6 +68,8 @@ addOptional(p, 'tabLabel', defaultTabLabel);
 addOptional(p, 'modelName', defaultModelName)
 addOptional(p, 'tabNote', defaultTabNote);
 addOptional(p, 'addInfo', defaultTabInfo);
+addOptional(p, 'customVarNames', defaultCustomVarNames); %customVarNames
+
 parse(p,varargin{:});
 
 % Check wether the modelName is correctly specified. If not set default
@@ -107,7 +118,7 @@ end
 coefficientsNames = char(coefficientsNames);
 
 % Add cell array of unique coefficient names
-rowNamesUnique = unique(string(coefficientsNames));
+rowNamesUnique = unique(string(coefficientsNames),'stable');
 
 % Remove empty first row
 
@@ -137,6 +148,10 @@ for iModel=1:numModel
     end
 end
 
+tempCustomVarNames = cell(max(coefficients)*2,1); %p.Results.customVarNames
+idxCustomVarNames = 1:2:size(tempCustomVarNames,1);
+tempCustomVarNames(idxCustomVarNames) = p.Results.customVarNames;
+
 % Loop through every row
 for iRow = 1:size(temp,1)
     
@@ -146,8 +161,9 @@ for iRow = 1:size(temp,1)
     
     % Format first column
     if out == 0
+        
         % Format first column of variable names
-        textVar = append('\multirow{2}{*}{',cell2mat(temp(iRow,1)),'}&');
+        textVar = append('\multirow{2}{*}{',cell2mat(tempCustomVarNames(iRow,1)),'}&');
         
         % Call function and create column text
         colText = createColText(temp,iRow);
