@@ -124,7 +124,7 @@ end
 
 for iModel=1:numModel
     
-    outCell = createTabelCell(p.Results.mdl{iModel});
+    outCell = createTableCell(p.Results.mdl{iModel});
     
     % Add variables to cell
     for iVar = 1:size(outCell,1)
