@@ -1,4 +1,4 @@
-function temp = createTabelCell(mdl)
+function temp = createTableCell(mdl)
 
 mdlCell = table2cell(mdl.Coefficients);
 
